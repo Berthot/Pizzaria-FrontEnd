@@ -38,17 +38,24 @@ export default {
   },
   methods: {
     enviar() {
-      const resposta = this.axios
-        .post("https://pizzariadb.herokuapp.com/Client/post", this.form)
-        .then((response) => {
-          console.log("deu boa");
-          console.log(response.data);
-        })
-        .catch((error) => {
-            console.log("deu erro")
-            console.log(error.response)
-        });
+      if (this.veriticarSeEstaVazio()){
+          console.log("esta vazio");
+          return;
+      }
+        const resposta = this.axios
+          .post("https://pizzariadb.herokuapp.com/Client/post", this.form)
+          .then((response) => {
+            console.log("deu boa");
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log("deu erro");
+            console.log(error.response);
+          });
       console.log(resposta);
+    },
+    veriticarSeEstaVazio() {
+      return this.data.form.name === "";
     },
   },
 };
