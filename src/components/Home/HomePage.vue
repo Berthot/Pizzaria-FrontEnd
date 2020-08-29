@@ -1,16 +1,11 @@
 <template>
-  <form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname">
-  </form> 
+  <div>
+      <h1>HOME</h1>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -1,27 +1,44 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import HomePage from "../components/Home/HomePage.vue";
+import CreateClient from "../components/SingUp/CreateClient.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+export default new VueRouter({
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: HomePage,
+    },
+    {
+      path: "/createClient",
+      name: "CreateNewClient",
+      component: CreateClient,
+    },
+    // {
+    //     path: "/fontes/:cod_interno/reparos",
+    //     name: "reparos",
+    //     component: ReparosTable,
+    //     meta: {
+    //         title: route => `Todos os reparos da fonte "${route.params.cod_interno}"`
+    //     } ,
 
-const router = new VueRouter({
-  routes
-})
+    // },
+    // {
+    //     path: "/fontes",
+    //     name: "fontes",
+    //     component: HomePage,
+    //     meta: { title: "Todas as fontes" }
+    // },
 
-export default router
+    // {
+    //     path: "/new",
+    //     name: "novo",
+    //     component: ConcertoForm,
+    //     meta: { title: "Novo registro" }
+    // }
+  ],
+  mode: "history",
+});
